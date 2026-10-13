@@ -53,11 +53,21 @@ class CrearProductoActivity : AppCompatActivity() {
         binding.textoTitulo.setText(
             if (idProducto == null) R.string.crear_producto else R.string.editar_producto
         )
-        if (savedInstanceState == null && idProducto != null) {
-            binding.campoNombre.setText(intent.getStringExtra(EXTRA_NOMBRE))
-            binding.campoDescripcion.setText(intent.getStringExtra(EXTRA_DESCRIPCION))
-            binding.campoPrecio.setText(intent.getDoubleExtra(EXTRA_PRECIO, 0.0).toString())
-            binding.campoStock.setText(intent.getIntExtra(EXTRA_STOCK, 0).toString())
+        if (savedInstanceState == null) {
+            if (idProducto != null) {
+                binding.campoNombre.setText(intent.getStringExtra(EXTRA_NOMBRE))
+                binding.campoDescripcion.setText(intent.getStringExtra(EXTRA_DESCRIPCION))
+                binding.campoPrecio.setText(intent.getDoubleExtra(EXTRA_PRECIO, 0.0).toString())
+                binding.campoStock.setText(intent.getIntExtra(EXTRA_STOCK, 0).toString())
+            } else if (intent.hasExtra(EXTRA_NOMBRE)) {
+                // Datos precargados al importar desde el catálogo DummyJSON.
+                binding.campoNombre.setText(intent.getStringExtra(EXTRA_NOMBRE).orEmpty())
+                binding.campoDescripcion.setText(intent.getStringExtra(EXTRA_DESCRIPCION).orEmpty())
+                if (intent.hasExtra(EXTRA_PRECIO)) {
+                    binding.campoPrecio.setText(intent.getDoubleExtra(EXTRA_PRECIO, 0.0).toString())
+                }
+                binding.campoStock.setText("0")
+            }
         }
         binding.botonGuardarProducto.setOnClickListener { guardarProducto() }
         categoriaAnterior = if (savedInstanceState == null) {

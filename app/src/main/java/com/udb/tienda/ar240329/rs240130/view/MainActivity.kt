@@ -14,6 +14,9 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         val binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        binding.botonCatalogoProveedor.setOnClickListener {
+            startActivity(Intent(this, CatalogoActivity::class.java))
+        }
         binding.botonInventario.setOnClickListener {
             startActivity(Intent(this, InventarioActivity::class.java))
         }
