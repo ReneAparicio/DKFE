@@ -14,7 +14,8 @@ import com.udb.tienda.ar240329.rs240130.controller.CategoriaController
 import com.udb.tienda.ar240329.rs240130.databinding.ActivityCrearProductoBinding
 import com.udb.tienda.ar240329.rs240130.model.Producto
 
-class CrearProductoActivity : AppCompatActivity() {
+open class CrearProductoActivity : AppCompatActivity() {
+    protected open val modoEdicion = false
     companion object {
         const val EXTRA_ID = "producto_id"
         const val EXTRA_NOMBRE = "producto_nombre"
@@ -32,7 +33,7 @@ class CrearProductoActivity : AppCompatActivity() {
     private var categoriaAnterior: String? = null
     private var guardando = false
     private val idProducto: String?
-        get() = intent.getStringExtra(EXTRA_ID)
+        get() = if (modoEdicion) intent.getStringExtra(EXTRA_ID) else null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -45,7 +46,7 @@ class CrearProductoActivity : AppCompatActivity() {
             vista.setPadding(barras.left, barras.top, barras.right, maxOf(barras.bottom, teclado.bottom))
             insets
         }
-        if (intent.hasExtra(EXTRA_ID) && idProducto.isNullOrBlank()) {
+        if ((modoEdicion && idProducto.isNullOrBlank()) || (!modoEdicion && intent.hasExtra(EXTRA_ID))) {
             Toast.makeText(this, R.string.producto_sin_id, Toast.LENGTH_LONG).show()
             finish()
             return
@@ -53,19 +54,13 @@ class CrearProductoActivity : AppCompatActivity() {
         binding.textoTitulo.setText(
             if (idProducto == null) R.string.crear_producto else R.string.editar_producto
         )
-        if (savedInstanceState == null) {
+        if (savedInstanceState == null && (idProducto != null || intent.hasExtra(EXTRA_NOMBRE))) {
+            binding.campoNombre.setText(intent.getStringExtra(EXTRA_NOMBRE))
+            binding.campoDescripcion.setText(intent.getStringExtra(EXTRA_DESCRIPCION))
+            binding.campoPrecio.setText(intent.getDoubleExtra(EXTRA_PRECIO, 0.0).toString())
             if (idProducto != null) {
-                binding.campoNombre.setText(intent.getStringExtra(EXTRA_NOMBRE))
-                binding.campoDescripcion.setText(intent.getStringExtra(EXTRA_DESCRIPCION))
-                binding.campoPrecio.setText(intent.getDoubleExtra(EXTRA_PRECIO, 0.0).toString())
                 binding.campoStock.setText(intent.getIntExtra(EXTRA_STOCK, 0).toString())
-            } else if (intent.hasExtra(EXTRA_NOMBRE)) {
-                // Datos precargados al importar desde el catálogo DummyJSON.
-                binding.campoNombre.setText(intent.getStringExtra(EXTRA_NOMBRE).orEmpty())
-                binding.campoDescripcion.setText(intent.getStringExtra(EXTRA_DESCRIPCION).orEmpty())
-                if (intent.hasExtra(EXTRA_PRECIO)) {
-                    binding.campoPrecio.setText(intent.getDoubleExtra(EXTRA_PRECIO, 0.0).toString())
-                }
+            } else {
                 binding.campoStock.setText("0")
             }
         }

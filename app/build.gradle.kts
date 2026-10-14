@@ -29,6 +29,7 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_11
@@ -37,7 +38,9 @@ android {
 }
 
 dependencies {
+    implementation(libs.picasso)
     implementation(libs.okhttp)
+    implementation(libs.okhttp.logging.interceptor)
     implementation(libs.kotlinx.coroutines.android)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.retrofit)

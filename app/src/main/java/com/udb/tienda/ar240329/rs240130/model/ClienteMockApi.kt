@@ -1,6 +1,10 @@
 package com.udb.tienda.ar240329.rs240130.model
 
 import java.io.IOException
+import android.util.Log
+import com.udb.tienda.ar240329.rs240130.BuildConfig
+import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,8 +19,16 @@ class ClienteMockApi {
             check(URL_BASE_MOCKAPI.isNotBlank()) {
                 "Falta configurar URL_BASE_MOCKAPI en ClienteMockApi."
             }
+            val cliente = OkHttpClient.Builder().apply {
+                if (BuildConfig.DEBUG) {
+                    addInterceptor(HttpLoggingInterceptor { mensaje -> Log.d("MockApiHTTP", mensaje) }.apply {
+                        level = HttpLoggingInterceptor.Level.BODY
+                    })
+                }
+            }.build()
             Retrofit.Builder()
                 .baseUrl(URL_BASE_MOCKAPI)
+                .client(cliente)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
         }

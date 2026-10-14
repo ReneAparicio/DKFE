@@ -3,53 +3,61 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingVertical="16dp">
-
+    android:background="@drawable/dkafe_row"
+    android:padding="16dp"
+    android:layout_marginBottom="12dp">
     <TextView
         android:id="@+id/textoNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
+        android:textSize="18sp"
+        android:textStyle="bold"
+        style="@style/Dkafe.Body"
+        android:textColor="@color/dkafe_text"
+        android:layout_marginBottom="4dp" />
     <TextView
         android:id="@+id/textoId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        style="@style/Dkafe.Body" />
     <TextView
         android:id="@+id/textoDescripcion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        style="@style/Dkafe.Body"
+        android:layout_marginTop="6dp" />
     <TextView
         android:id="@+id/textoPrecio"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        style="@style/Dkafe.Body"
+        android:textColor="@color/dkafe_wine"
+        android:textStyle="bold" />
     <TextView
         android:id="@+id/textoStock"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        style="@style/Dkafe.Body"
+        android:layout_marginTop="6dp" />
     <TextView
         android:id="@+id/textoCategoria"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/Dkafe.Body"
+        android:layout_marginTop="6dp" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:orientation="horizontal">
-
         <Button
             android:id="@+id/botonEditarProducto"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="@string/editar"
-            android:textAllCaps="false" />
-
+            android:textAllCaps="false"
+            style="@style/Dkafe.Button.Outlined" />
         <Button
             android:id="@+id/botonEliminarProducto"
             android:layout_width="0dp"
@@ -57,6 +65,7 @@
             android:layout_marginStart="8dp"
             android:layout_weight="1"
             android:text="@string/eliminar"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            style="@style/Dkafe.Button.Outlined" />
     </LinearLayout>
 </LinearLayout>

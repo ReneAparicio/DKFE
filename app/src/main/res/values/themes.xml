@@ -1,9 +1,21 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Dkfe" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Base.Theme.Dkfe" parent="Theme.Material3.Light.NoActionBar">
+        <item name="colorPrimary">@color/dkafe_wine</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="colorSecondary">@color/dkafe_wine</item>
+        <item name="colorSurface">@color/white</item>
+        <item name="colorOnSurface">@color/dkafe_text</item>
+        <item name="colorOnSurfaceVariant">@color/dkafe_secondary</item>
+        <item name="colorOutline">@color/dkafe_border</item>
+        <item name="android:windowBackground">@color/dkafe_cream</item>
+        <item name="android:colorBackground">@color/dkafe_cream</item>
+        <item name="android:textColorPrimary">@color/dkafe_text</item>
+        <item name="android:textColorSecondary">@color/dkafe_secondary</item>
+        <item name="android:fontFamily">sans</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="materialButtonStyle">@style/Dkafe.Button</item>
+        <item name="editTextStyle">@style/Dkafe.Field</item>
     </style>
-
     <style name="Theme.Dkfe" parent="Base.Theme.Dkfe" />
 </resources>

@@ -1,26 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="true"
-    tools:context=".view.CrearCategoriaActivity">
-
+    tools:context=".view.CrearCategoriaActivity"
+    android:background="@color/dkafe_cream">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="24dp">
-
         <TextView
             android:id="@+id/textoTitulo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="24dp"
             android:text="@string/crear_categoria"
-            android:textSize="28sp"
-            android:textStyle="bold" />
-
+            style="@style/Dkafe.Title" />
+        <TextView
+            style="@style/Dkafe.Label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/nombre"
+            android:labelFor="@id/campoNombre"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp" />
         <EditText
             android:id="@+id/campoNombre"
             android:layout_width="match_parent"
@@ -28,25 +32,33 @@
             android:minHeight="48dp"
             android:hint="@string/nombre"
             android:inputType="textCapSentences"
-            android:maxLines="1" />
-
+            android:maxLines="1"
+            style="@style/Dkafe.Field" />
+        <TextView
+            style="@style/Dkafe.Label"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/descripcion"
+            android:labelFor="@id/campoDescripcion"
+            android:layout_marginTop="16dp"
+            android:layout_marginBottom="6dp" />
         <EditText
             android:id="@+id/campoDescripcion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:minHeight="48dp"
             android:hint="@string/descripcion"
             android:inputType="textMultiLine|textCapSentences"
             android:gravity="top"
-            android:minLines="2" />
-
+            android:minLines="2"
+            style="@style/Dkafe.Field" />
         <Button
             android:id="@+id/botonGuardarCategoria"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:text="@string/guardar_categoria"
-            android:textAllCaps="false" />
+            android:textAllCaps="false"
+            style="@style/Dkafe.Button" />
     </LinearLayout>
 </ScrollView>

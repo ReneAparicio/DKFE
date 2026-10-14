@@ -1,39 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".view.CategoriasActivity">
-
+    tools:context=".view.CategoriasActivity"
+    android:background="@color/dkafe_cream">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:text="@string/categorias"
-        android:textSize="28sp"
-        android:textStyle="bold" />
-
+        style="@style/Dkafe.Title" />
     <Button
         android:id="@+id/botonCrearCategoria"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
         android:text="@string/crear_categoria"
-        android:textAllCaps="false" />
-
+        android:textAllCaps="false"
+        style="@style/Dkafe.Button" />
     <TextView
         android:id="@+id/textoEstado"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:accessibilityLiveRegion="polite" />
-
+        android:accessibilityLiveRegion="polite"
+        style="@style/Dkafe.Body" />
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listaCategorias"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:paddingHorizontal="24dp"
-        android:clipToPadding="false" />
+        android:clipToPadding="false"
+        android:paddingTop="16dp"
+        android:paddingBottom="16dp" />
 </LinearLayout>

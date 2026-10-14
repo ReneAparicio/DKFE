@@ -16,10 +16,11 @@ import com.udb.tienda.ar240329.rs240130.controller.ProductoController
 import com.udb.tienda.ar240329.rs240130.databinding.ActivityInventarioBinding
 import com.udb.tienda.ar240329.rs240130.model.Producto
 
-class InventarioActivity : AppCompatActivity() {
+open class InventarioActivity : AppCompatActivity() {
     private lateinit var binding: ActivityInventarioBinding
     private val controlador = ProductoController()
     private val adaptador = ProductoAdapter(
+        alSeleccionar = { producto -> mostrarOpciones(producto) },
         alEditar = { producto -> abrirFormulario(producto) },
         alEliminar = { producto -> confirmarEliminacion(producto) }
     )
@@ -74,7 +75,8 @@ class InventarioActivity : AppCompatActivity() {
             Toast.makeText(this, R.string.producto_sin_id, Toast.LENGTH_LONG).show()
             return
         }
-        val intent = Intent(this, CrearProductoActivity::class.java)
+        val pantalla = if (producto == null) CrearProductoActivity::class.java else ActualizarProductoActivity::class.java
+        val intent = Intent(this, pantalla)
         if (producto != null) {
             intent.putExtra(CrearProductoActivity.EXTRA_ID, producto.id)
             intent.putExtra(CrearProductoActivity.EXTRA_NOMBRE, producto.nombre)
@@ -84,6 +86,17 @@ class InventarioActivity : AppCompatActivity() {
             intent.putExtra(CrearProductoActivity.EXTRA_CATEGORIA, producto.categoria)
         }
         formulario.launch(intent)
+    }
+
+    private fun mostrarOpciones(producto: Producto) {
+        if (operacionEnCurso) return
+        AlertDialog.Builder(this)
+            .setTitle(producto.nombre)
+            .setItems(arrayOf(getString(R.string.modificar), getString(R.string.eliminar))) { _, opcion ->
+                if (opcion == 0) abrirFormulario(producto) else confirmarEliminacion(producto)
+            }
+            .setNegativeButton(R.string.cancelar, null)
+            .show()
     }
 
     private fun confirmarEliminacion(producto: Producto) {

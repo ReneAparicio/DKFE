@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="12dp"
+    android:orientation="horizontal"
+    android:background="@drawable/dkafe_row"
+    android:padding="16dp">
+    <ImageView
+        android:id="@+id/imagenProducto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginEnd="12dp"
+        android:scaleType="centerInside" />
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/textoNombre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            style="@style/Dkafe.Body"
+            android:textColor="@color/dkafe_text"
+            android:layout_marginBottom="4dp" />
+        <TextView
+            android:id="@+id/textoDescripcion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            style="@style/Dkafe.Body" />
+        <TextView
+            android:id="@+id/textoPrecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textStyle="bold"
+            style="@style/Dkafe.Body"
+            android:textColor="@color/dkafe_wine" />
+        <TextView
+            android:id="@+id/textoCategoria"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            style="@style/Dkafe.Body" />
+        <Button
+            android:id="@+id/botonImportar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/importar_producto"
+            android:textAllCaps="false"
+            style="@style/Dkafe.Button" />
+    </LinearLayout>
+</LinearLayout>

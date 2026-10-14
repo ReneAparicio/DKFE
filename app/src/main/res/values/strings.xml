@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">DKFE</string>
+    <string name="app_name">DKafé</string>
     <string name="catalogo_proveedor">Catálogo del proveedor</string>
     <string name="inventario">Inventario</string>
     <string name="categorias">Categorías</string>
@@ -18,6 +18,7 @@
     <string name="eliminar_producto">Eliminar producto</string>
     <string name="eliminar">Eliminar</string>
     <string name="editar">Editar</string>
+    <string name="modificar">Modificar</string>
     <string name="cancelar">Cancelar</string>
     <string name="nombre">Nombre</string>
     <string name="descripcion">Descripción</string>

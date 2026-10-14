@@ -2,4 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dkafe_wine">#591C21</color>
+    <color name="dkafe_text">#252B2D</color>
+    <color name="dkafe_secondary">#626565</color>
+    <color name="dkafe_cream">#FAF8F5</color>
+    <color name="dkafe_border">#DCD6D0</color>
 </resources>

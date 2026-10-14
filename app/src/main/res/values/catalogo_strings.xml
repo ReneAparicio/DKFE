@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="filtro_alimentos">Alimentos y bebidas</string>
+    <string name="filtro_todos">Todos los productos</string>
+    <string name="importar_producto">Importar</string>
+    <string name="buscar_nombre_proveedor">Buscar por nombre</string>
+    <string name="cargando_catalogo">Cargando catálogo…</string>
+    <string name="catalogo_sin_resultados">No se encontraron productos.</string>
+    <string name="error_cargar_catalogo">No se pudo cargar el catálogo.</string>
+    <string name="reintentar_catalogo">Reintentar</string>
+    <string name="precio_proveedor">Precio: $%1$.2f</string>
+</resources>

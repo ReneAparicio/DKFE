@@ -3,29 +3,35 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingVertical="16dp">
-
+    android:background="@drawable/dkafe_row"
+    android:padding="16dp"
+    android:layout_marginBottom="12dp">
     <TextView
         android:id="@+id/textoNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
+        android:textSize="18sp"
+        android:textStyle="bold"
+        style="@style/Dkafe.Body"
+        android:textColor="@color/dkafe_text"
+        android:layout_marginBottom="4dp" />
     <TextView
         android:id="@+id/textoId"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        style="@style/Dkafe.Body" />
     <TextView
         android:id="@+id/textoDescripcion"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-
+        android:layout_height="wrap_content"
+        style="@style/Dkafe.Body"
+        android:layout_marginTop="6dp" />
     <Button
         android:id="@+id/botonEliminarCategoria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/eliminar_categoria"
-        android:textAllCaps="false" />
+        android:textAllCaps="false"
+        style="@style/Dkafe.Button.Outlined"
+        android:layout_marginTop="12dp" />
 </LinearLayout>

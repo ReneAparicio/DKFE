@@ -8,6 +8,7 @@ import com.udb.tienda.ar240329.rs240130.databinding.ItemProductoBinding
 import com.udb.tienda.ar240329.rs240130.model.Producto
 
 class ProductoAdapter(
+    private val alSeleccionar: (Producto) -> Unit,
     private val alEditar: (Producto) -> Unit,
     private val alEliminar: (Producto) -> Unit
 ) : RecyclerView.Adapter<ProductoAdapter.ProductoViewHolder>() {
@@ -35,13 +36,13 @@ class ProductoAdapter(
     }
 
     override fun onBindViewHolder(holder: ProductoViewHolder, position: Int) {
-        holder.mostrarProducto(productos[position], alEditar, alEliminar)
+        holder.mostrarProducto(productos[position], alSeleccionar, alEditar, alEliminar)
     }
 
     override fun getItemCount() = productos.size
 
     class ProductoViewHolder(private val binding: ItemProductoBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun mostrarProducto(producto: Producto, alEditar: (Producto) -> Unit, alEliminar: (Producto) -> Unit) {
+        fun mostrarProducto(producto: Producto, alSeleccionar: (Producto) -> Unit, alEditar: (Producto) -> Unit, alEliminar: (Producto) -> Unit) {
             val contexto = binding.root.context
             binding.textoNombre.text = producto.nombre
             binding.textoDescripcion.text = producto.descripcion
@@ -49,7 +50,7 @@ class ProductoAdapter(
             binding.textoPrecio.text = contexto.getString(R.string.producto_precio, producto.precio)
             binding.textoStock.text = contexto.getString(R.string.producto_stock, producto.stock)
             binding.textoCategoria.text = contexto.getString(R.string.producto_categoria, producto.categoria)
-            binding.root.setOnClickListener { alEditar(producto) }
+            binding.root.setOnClickListener { alSeleccionar(producto) }
             binding.botonEditarProducto.setOnClickListener { alEditar(producto) }
             binding.botonEliminarProducto.setOnClickListener { alEliminar(producto) }
         }

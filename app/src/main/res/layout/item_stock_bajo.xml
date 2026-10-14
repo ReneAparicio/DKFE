@@ -3,17 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:paddingVertical="16dp">
-
+    android:background="@drawable/dkafe_row"
+    android:padding="16dp"
+    android:layout_marginBottom="12dp">
     <TextView
         android:id="@+id/textoNombre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:textStyle="bold" />
-
+        android:textSize="18sp"
+        android:textStyle="bold"
+        style="@style/Dkafe.Body"
+        android:textColor="@color/dkafe_text"
+        android:layout_marginBottom="4dp" />
     <TextView
         android:id="@+id/textoStock"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        style="@style/Dkafe.Body"
+        android:layout_marginTop="6dp" />
 </LinearLayout>
